@@ -113,6 +113,8 @@ class FileBag extends ParameterBag
      */
     protected function fixPhpFilesArray($data)
     {
+        // Remove extra key added by PHP 8.1.
+        unset($data['full_path']);
         if (!\is_array($data)) {
             return $data;
         }
